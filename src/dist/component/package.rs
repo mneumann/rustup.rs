@@ -291,7 +291,8 @@ fn unpack_without_first_dir<'a, R: Read>(
         .entries()
         .chain_err(|| ErrorKind::ExtractingPackage)?;
     const MAX_FILE_SIZE: u64 = 200_000_000;
-    let effective_max_ram = effective_limits::memory_limit()?;
+    //let effective_max_ram = effective_limits::memory_limit()?;
+    let effective_max_ram = 400_000_000; //effective_limits::memory_limit()?;
     let mut budget = MemoryBudget::new(
         MAX_FILE_SIZE as usize,
         effective_max_ram as usize,
